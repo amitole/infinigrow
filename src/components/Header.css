@@ -1,0 +1,26 @@
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.2px;
+}
+.subTitle {
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #182033;
+}
+.second_subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.second_subtitle_text {
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #99A4C2;
+}
