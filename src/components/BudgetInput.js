@@ -4,7 +4,6 @@ const BudgetInput = ({id, name, amount, update }) => {
     const [num, setNum] = useState('')
 
     const handleChange = (event) => {
-        console.log("sdds", event.target.value);
         setNum(event.target.value);
         update(id, event.target.value)
     };
