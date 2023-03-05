@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
-const BudgetInput = ({ name, amount }) => {
+const BudgetInput = ({id, name, amount, update }) => {
     const [num, setNum] = useState('')
 
     const handleChange = (event) => {
         console.log("sdds", event.target.value);
         setNum(event.target.value);
+        update(id, event.target.value)
     };
 
     return (
@@ -13,7 +14,7 @@ const BudgetInput = ({ name, amount }) => {
             <label>{name}</label>
             <div className='inputfiled'>
                 <div className='dollar'>$</div>
-                <input className='inp' type="number" placeholder={amount ? amount : num} value={num} onChange={handleChange} />
+                <input className='inp' type="number" value={amount ? amount : num} onChange={handleChange} />
             </div>
         </div>
     )

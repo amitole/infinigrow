@@ -35,7 +35,6 @@ const RowData = () => {
         newAlignment,
     ) => {
         setAlignment(newAlignment)
-        console.log("newAlignment", alignment);;
     };
 
     const handleDcimalSeparator = (e) => {
@@ -61,7 +60,18 @@ const RowData = () => {
         return parseInt(amount.toString().replace(/,/g, '')) / 12
     }
 
-    const budgetFeilds = budgetMounts.map(date => <BudgetInput key={date.id} name={date.name} amount={alignment === 'left' ? splittingAmount()  : date.amount} />)
+    const updateAmount = (id ,value) => {
+       
+        const newState = budgetMounts.map(obj =>
+            obj.id === id ? { ...obj, amount: value } : obj
+        );
+        setBudgetMounts(newState);
+
+        setTotalAmount(newState.map(date => parseInt(date.amount)).reduce((a, b) => a + b));
+
+    }
+
+    const budgetFeilds = budgetMounts.map(date => <BudgetInput key={date.id} id={date.id} name={date.name} amount={alignment === 'left' ? splittingAmount()  : date.amount} update={updateAmount} />)
 
     return (
         <div className='container'>
